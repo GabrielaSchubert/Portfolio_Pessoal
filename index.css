@@ -3,7 +3,7 @@
 /*Cor da letra, fonte e cor da página*/
 body {
     color: white;
-    background: linear-gradient(90deg, hsla(296, 100%, 6%, 1) 0%, hsla(5, 90%, 24%, 1) 100%); 
+    background: linear-gradient(90deg, hsla(296, 100%, 6%, 1) 0%, hsl(5, 90%, 24%) 100%); 
     font-family: "Lora", "Baskervville SC", sans-serif;
 } 
 .conteudo {
@@ -44,7 +44,7 @@ a:hover {
     width: 120px;
     height: 160px;
     border-radius: 50%;
-    border: 5px solid rgb(116,15,6);
+    border: 5px solid  #920a1e;
 }
 /*Criando a classe e centralizando*/
 .center {
@@ -52,7 +52,7 @@ a:hover {
 }
 /*Estilizando os hs*/
 h1,h3 {
-    color: #BE2929;
+    color: #920a1e;
     font-family: "Baskervville SC";
     font-weight: 400;
     font-style: normal;
