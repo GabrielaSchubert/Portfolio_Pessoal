@@ -3,7 +3,7 @@
 /*Cor da letra, fonte e cor da página*/
 body {
     color: white;
-    background: linear-gradient(90deg, hsla(296, 100%, 6%, 1) 0%, hsl(5, 90%, 24%) 100%); 
+    background: #0f0f0f; 
     font-family: "Lora", "Baskervville SC", sans-serif;
 } 
 .conteudo {
@@ -78,7 +78,7 @@ h2 {
     height: 130px;
     margin-left: 20px; /* Adiciona espaço à esquerda da imagem */
     margin-right: 20px;  /* Espaço fixo entre a imagem e o texto */
-    border: 4px solid #000000;
+    border: 4px solid #920a1e;
 }
 /*Designer do projeto*/
 .project {
