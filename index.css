@@ -252,3 +252,8 @@ body.light .carousel-control-next-icon {
     padding: 20px;
     text-align: center;
 }
+/*Estilo do copyright*/
+.copyright{
+  margin-top: 10px;
+  font-size: 12px;
+}
