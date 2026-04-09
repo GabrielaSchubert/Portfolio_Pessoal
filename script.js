@@ -60,3 +60,58 @@ document.addEventListener("DOMContentLoaded", function () {
   // usa evento do bootstrap para atualizar após transição
   carousel.addEventListener("slid.bs.carousel", updateCaption);
 });
+
+// Scroll reveal: observa elementos e aplica a classe 'in-view' quando aparecem
+function initScrollReveal() {
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  )
+    return;
+
+  const selectors = [
+    "header",
+    "main section",
+    "h1",
+    "h2",
+    "h3",
+    "p",
+    ".person",
+    ".carousel-container",
+    ".project-item",
+    "footer",
+    ".imgcenter",
+  ];
+
+  const nodes = Array.from(document.querySelectorAll(selectors.join(",")));
+  const unique = [...new Set(nodes)];
+
+  unique.forEach((el, i) => {
+    if (el.classList.contains("sr")) return;
+    el.classList.add("sr");
+    // alterna direção para criar variação visual
+    const dir =
+      el.clientWidth > 240 && el.clientHeight > 40
+        ? i % 2 === 0
+          ? "sr-left"
+          : "sr-right"
+        : "sr-up";
+    el.classList.add(dir);
+  });
+
+  const io = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+  );
+
+  unique.forEach((el) => io.observe(el));
+}
+
+document.addEventListener("DOMContentLoaded", initScrollReveal);

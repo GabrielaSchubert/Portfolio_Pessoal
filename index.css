@@ -370,3 +370,46 @@ body.light .carousel-control-next-icon {
     margin-top: -12px;
   }
 }
+
+/* Scroll reveal (animações ao rolar) */
+:root {
+  --sr-easing: cubic-bezier(0.2, 0.9, 0.2, 1);
+  --sr-duration: 640ms;
+}
+
+/* Estado inicial dos elementos que serão revelados */
+.sr {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity var(--sr-duration) var(--sr-easing),
+    transform var(--sr-duration) var(--sr-easing);
+  will-change: opacity, transform;
+}
+
+/* Direções alternativas */
+.sr-left {
+  transform: translateX(-36px);
+}
+.sr-right {
+  transform: translateX(36px);
+}
+.sr-up {
+  transform: translateY(24px);
+}
+
+/* Estado visível */
+.sr.in-view {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* Evita animações para usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .sr,
+  .sr.in-view {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
