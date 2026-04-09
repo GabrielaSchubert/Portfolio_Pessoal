@@ -1,45 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+.import-fonts {
+  /* Fonts import separadas para melhor cache */
+}
+@import url("https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #0f0f0f;
+  --text-light: #111111;
+  --text-dark: #ffffff;
+  --primary: #920a1e;
+  --accent: #74200a;
+  --muted: #6b6b6b;
+  --container-max: 1100px;
+  --radius: 10px;
+  --gap: 1rem;
+}
 
 /*Cor da letra, fonte e cor da página*/
-body { 
-    font-family: "Lora", "Baskervville SC", sans-serif;
-    transition: background-color 0.3s, color 0.3s;
+body {
+  font-family: "Lora", "Baskervville SC", serif;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  line-height: 1.6;
 }
 /* Tema claro */
 body.light {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--bg-light);
+  color: var(--text-light);
 }
-
 body.light a {
-  color: #000000;
+  color: var(--text-light);
+}
+body.light h1,
+body.light h2,
+body.light h3 {
+  color: var(--primary);
 }
 
-body.light h1, 
-body.light h2, 
-body.light h3 {
-  color: #920a1e;
-}
-/* Tema escuro (já existente, você pode manter como está) */
+/* Tema escuro */
 body.dark {
-  background-color: #0f0f0f;
-  color: white;
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
 }
 body.dark a {
-  color: white;
+  color: var(--text-dark);
 }
-body.dark h1, 
-body.dark h2, 
+body.dark h1,
+body.dark h2,
 body.dark h3 {
-  color: #920a1e;
+  color: var(--primary);
 }
 .nav-list {
   display: flex;
   align-items: center;
-  padding: 16px 32px;
+  padding: 12px 16px;
   list-style: none;
   margin: 0;
   width: 100%;
+  gap: var(--gap);
   flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha em celulares */
 }
 
@@ -62,173 +83,205 @@ body.dark h3 {
 .toggle-theme {
   background: transparent;
   border: 2px solid currentColor;
-  border-radius: 50px;
+  border-radius: 999px;
   padding: 6px 12px;
   font-size: 15px;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   color: inherit;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.2s,
+    transform 0.12s;
 }
 
 .toggle-theme:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+.toggle-theme:focus {
+  outline: 3px solid rgba(146, 10, 30, 0.18);
+  outline-offset: 2px;
 }
 
 .separador {
   width: 1px;
   height: 20px;
   background-color: currentColor;
-  opacity: 0.5;
+  opacity: 0.45;
 }
 /*Estilizando o conteúdo*/
 .conteudo {
-    font-family: "Lora";
-    font-weight: 400;
-    font-style: normal;
-    margin: 0 auto;
+  margin: 0 auto;
+  padding: 24px 0;
+  max-width: var(--container-max);
 }
 .name {
-    font-family: "Baskervville SC";
-    font-weight: 400;
-    font-style: normal;
-  }
+  font-family: "Baskervville SC";
+  font-weight: 400;
+  margin-bottom: 0.2rem;
+}
 /*Estilizando a lista*/
 ul {
-  display: flex;
-  align-items: center;
-  padding: 16px;
+  list-style: none;
+  padding: 0;
   margin: 0;
-  list-style-type: none;
-  gap: 20px;
 }
 /*Estilizando os links*/
 a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    transition: color 0.3s, background-color 0.3s;
+  text-decoration: none;
+  padding: 6px 8px;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+/* Efeito hover suave e leve aumento nos links da nav */
+.nav-list a {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition:
+    transform 0.18s ease,
+    color 0.18s ease,
+    background-color 0.18s ease;
+}
+.nav-list a:hover,
+.nav-list a:focus {
+  transform: translateY(-3px) scale(1.04);
+  color: white;
+  background-color: var(--primary);
 }
 /*Detalhe na introdução da página e meio*/
 a:hover {
-    color: #CC0000;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
+  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
 }
 /*Editando a foto central do index*/
 .imgcenter {
-    width: 120px;
-    height: 160px;
-    border-radius: 50%;
-    border: 5px solid  #920a1e;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 6px solid var(--primary);
+  object-fit: cover;
+  object-position: center 30%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 }
 /*Criando a classe e centralizando*/
 .center {
-    text-align: center;
+  text-align: center;
+}
+
+/* Ajuste para subir a imagem central e mostrar mais do rosto */
+.person {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.4rem;
+  margin-top: -8px;
+  z-index: 2;
 }
 /*Estilizando os hs*/
-h1,h3 {
-    color: #920a1e;
-    font-family: "Baskervville SC";
-    font-weight: 400;
-    font-style: normal;
+h1,
+h3 {
+  color: var(--primary);
+  font-family: "Baskervville SC";
 }
 h2 {
-    font-family: "Lora";
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Lora";
+  color: inherit;
+  font-weight: 400;
 }
 /*Centralizando*/
 .container {
-    padding: 0 20px;
-    position: relative;
+  padding: 0 20px;
+  position: relative;
+  max-width: var(--container-max);
+  margin: 0 auto;
 }
 /*Icones*/
 .img-icones {
-    width: 80px;
-    height: 60px;
-    object-fit: contain; /* Mantém a imagem nítida */
+  width: 56px;
+  height: 40px;
+  object-fit: contain;
+  display: inline-block;
 }
 .img-project {
-    width: 160px;
-    height: 130px;
-    margin-left: 20px; /* Adiciona espaço à esquerda da imagem */
-    margin-right: 20px;  /* Espaço fixo entre a imagem e o texto */
-    border: 4px solid #920a1e;
+  width: 160px;
+  height: 130px;
+  margin: 0 20px;
+  border: 4px solid var(--primary);
 }
 /*Designer do projeto*/
 .project {
-    display: flex;
-    flex-direction: column; 
-    margin-bottom: 20px;
-    max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  max-width: 900px;
 }
 .project-item {
-    display: flex;
-    align-items: flex-start; /* Alinha a imagem e o texto no topo */
-    margin-bottom: 20px; /* Espaçamento entre os itens do projeto */
-} 
-/*Ajustes do designer do relógio*/
-.relogio-container {
-    position: absolute;
-    right: 2%; /* Ajusta a distância do lado direito da página */
-    top: 20%;
-    transform: translateY(-50%);
+  display: flex;
+  align-items: flex-start; /* Alinha a imagem e o texto no topo */
+  margin-bottom: 20px; /* Espaçamento entre os itens do projeto */
 }
-#clock {
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20px;
-    padding: 10px;
-    border: 2px solid #000000;
-    display: inline-block;
-    background-color: rgb(116,15,6);
-    border-radius: 5px;
-    width: 150px;
-    max-width: 150px;
-    box-sizing: border-box;
-}
-/*Configuração para telas menores*/
-@media (max-width: 600px) {
-    .relogio-container {
-        right: 2%; /* Ajusta a distância do lado direito em telas menores */
-        top: 10%; /* Ajusta a distância do topo em telas menores */
-    }
-    #clock {
-        font-size: 1.2em; /* Ajusta o tamanho do texto em telas menores */
-        padding: 0.5em; /* Ajusta o preenchimento em telas menores */
-        width: 90%; /* Ajusta a largura para telas menores */
-    }
-}
+/* bloco de estilos do relógio removido */
 /*Carrossel*/
 .carousel-item {
-    display: none;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 500px; /* Altura fixa para o item do carrossel */
-    width: 100%; /* Largura total */
-    text-align: center; /* Alinhamento do conteúdo */
-}
-.carousel-item.active {
-    display: flex;
+  /* Não sobrescrever display; o Bootstrap controla a visibilidade/transformação */
+  height: 420px;
+  width: 100%;
+  text-align: center;
 }
 
 .carousel-inner {
-    position: relative; /* Configura o posicionamento relativo */
-    width: 100%; 
-    height: 100%; 
+  position: relative; /* Configura o posicionamento relativo */
+  width: 100%;
+  height: 100%;
 }
 
 .carousel-inner img {
-    display: block; /* Imagens como blocos */
-    max-height: 300px; /* Define uma altura máxima  */
-    max-width: 100%; /* Mantém a responsividade horizontal */
-    margin: auto; /* Centraliza horizontalmente e verticalmente */
-    object-fit: contain; /* Garante as proporções das imagens  */
-    border-radius: 10px; /* Bordas arredondadas */
+  display: block;
+  max-height: 320px;
+  max-width: 100%;
+  margin: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+/* Container menor e centralizado para o carrossel */
+.carousel-container {
+  max-width: 600px;
+  margin: 36px auto 18px; /* mais espaço acima para separar dos meus projetos */
+}
+.carousel-container .carousel-inner {
+  height: 280px;
+}
+.carousel-container .carousel-item {
+  height: 100%;
+}
+.carousel-container .carousel-inner img {
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* legenda externa abaixo do carrossel */
+.carousel-caption-below {
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+/* esconder legendas internas do bootstrap */
+.carousel-caption {
+  display: none !important;
 }
 /* Legendas */
 body.dark .carousel-caption p {
@@ -249,11 +302,71 @@ body.light .carousel-control-next-icon {
 }
 /*Rodapé*/
 .rodape {
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  margin-top: 28px;
+}
+
+.social-list {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 0;
+  margin: 0 0 8px 0;
+}
+.social-list li {
+  list-style: none;
 }
 /*Estilo do copyright*/
-.copyright{
-  margin-top: 10px;
+.copyright {
+  margin-top: 8px;
   font-size: 12px;
+  color: var(--muted);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 16px;
+  top: 12px;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: var(--primary);
+  color: white;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+/* Foco visível para acessibilidade */
+:focus-visible {
+  outline: 3px solid rgba(146, 10, 30, 0.18);
+  outline-offset: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .imgcenter {
+    width: 120px;
+    height: 120px;
+    object-position: center 30%;
+    border-width: 4px;
+  }
+  .person {
+    margin-top: -12px;
+  }
 }

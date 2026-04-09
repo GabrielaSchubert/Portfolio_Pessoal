@@ -1,108 +1,210 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./imagem/imagem_computador.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./imagem/imagem_computador.png" />
     <title>Gabriela Schubert</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="index.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body class="dark">
-    <nav>
-        <ul class="nav-list">
+  </head>
+  <body class="dark">
+    <a class="skip-link" href="#main">Ir para o conteúdo</a>
+    <div class="container">
+      <header>
+        <nav aria-label="Principal">
+          <ul class="nav-list">
             <li class="left"><a href="index.html">Sobre mim</a></li>
-            <li class="center"><a href="project.html" target="_blank">Meus Projetos</a></li>
+            <li class="center">
+              <a href="project.html" target="_blank" rel="noopener"
+                >Meus Projetos</a
+              >
+            </li>
             <li class="right">
-              <button class="toggle-theme" onclick="toggleTheme()">
-                <span class="icone-sol">☀️</span>
-                <span class="separador"></span>
-                <span class="icone-lua">🌙</span>
+              <button
+                id="themeToggle"
+                class="toggle-theme"
+                onclick="toggleTheme()"
+                aria-pressed="false"
+                aria-label="Alternar tema claro e escuro"
+              >
+                <span class="icone-sol" aria-hidden="true">☀️</span>
+                <span class="separador" aria-hidden="true"></span>
+                <span class="icone-lua" aria-hidden="true">🌙</span>
               </button>
             </li>
-        </ul>
-    </nav>
-    <div class="container">
-    <header>
-        <div class="center">
-            <img class="imgcenter" src="/imagem/imagem_Gabriela.jpg" alt="imagem pessoal">
+          </ul>
+        </nav>
+        <div class="center person">
+          <img
+            class="imgcenter"
+            src="imagem/imagem_Gabriela.jpg"
+            alt="Gabriela Schubert sorrindo"
+          />
         </div>
         <h1 class="name">Gabriela Schubert</h1>
-        <h2>Estudante de Sistemas De Informação</h2>
-    </header>
-        <div class="relogio-container">
-       
-        <div id="clock">00:00:00</div>
-        </div>
+        <h2>Estudante de Sistemas de Informação</h2>
+      </header>
 
-    <main class="conteudo">
+      <main id="main" class="conteudo">
         <section>
-            <h3>Sobre mim</h3>
-            <p>Olá, seja bem-vindo ao meu portfólio! 
-            Me chamo Gabriela, iniciante na área da tecnologia, possuo conhecimentos em linguagens como: <strong>Python, Html, Css e JavaScript</strong>.
-            Profissional dedicada, estudiosa e responsável. Veja mais sobre mim em: Meus Projetos.</p>
+          <h3>Sobre mim</h3>
+          <p>
+            Olá, seja bem-vindo ao meu portfólio! Me chamo Gabriela, iniciante
+            na área da tecnologia, possuo conhecimentos em linguagens como:
+            <strong>Python, Html, Css, JavaScript e SQL. </strong>. Profissional
+            dedicada, estudiosa e responsável. Veja mais sobre mim em: Meus
+            Projetos.
+          </p>
         </section>
         <section>
-            <h3>Formação</h3>
-            <p>Ensino Médio Completo.</p>
-            <p>Cursando Sistemas de Informação no Instituto Federal Catarinense - Campus Araquari.</p>
+          <h3>Formação</h3>
+          <p>Ensino Médio Completo.</p>
+          <p>
+            Cursando Sistemas de Informação no Instituto Federal Catarinense -
+            Campus Araquari.
+          </p>
         </section>
         <h3>Habilidades</h3>
-        <div id="meuCarrossel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-container">
+          <div id="meuCarrossel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1 - organização"></button>
-              <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="1" aria-label="Slide 2 - programação"></button>
-              <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="2" aria-label="Slide 3 - administração"></button>
-              <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="3" aria-label="Slide 4 - trabalho em equipe"></button>
-            </div>
-          
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="https://aletp.com.br/wp-content/uploads/2017/08/casa-organizada.jpg" class="d-block w-100" alt="Imagem de organização">
-                <div class="carousel-caption d-none d-md-block">
-                  <p>Organização</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="https://www.prakmatic.com/wp-content/uploads/auditoria-codigo-fuente1.jpg" class="d-block w-100" alt="Imagem de programação">
-                <div class="carousel-caption d-none d-md-block">
-                  <p>Programação</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="https://www.cde.ual.es/wp-content/uploads/2020/02/Ordenador-768x448.png" class="d-block w-100" alt="Imagem de administração">
-                <div class="carousel-caption d-none d-md-block">
-                  <p>Administração</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="https://www.hrconnect.cl/wp-content/uploads/2019/10/Palmetto-Leadership-why-us.jpg" class="d-block w-100" alt="Imagem de trabalho em equipe">
-                <div class="carousel-caption d-none d-md-block">
-                    <p>Trabalho em equipe</p>
-                </div>
-                </div>
+              <button
+                type="button"
+                data-bs-target="#meuCarrossel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1 - organização"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#meuCarrossel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2 - programação"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#meuCarrossel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3 - administração"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#meuCarrossel"
+                data-bs-slide-to="3"
+                aria-label="Slide 4 - trabalho em equipe"
+              ></button>
             </div>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#meuCarrossel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-caption="Organização">
+                <img
+                  src="https://aletp.com.br/wp-content/uploads/2017/08/casa-organizada.jpg"
+                  class="d-block w-100"
+                  alt="Imagem de organização"
+                />
+              </div>
+              <div class="carousel-item" data-caption="Programação">
+                <img
+                  src="https://www.prakmatic.com/wp-content/uploads/auditoria-codigo-fuente1.jpg"
+                  class="d-block w-100"
+                  alt="Imagem de programação"
+                />
+              </div>
+              <div class="carousel-item" data-caption="Administração">
+                <img
+                  src="https://www.cde.ual.es/wp-content/uploads/2020/02/Ordenador-768x448.png"
+                  class="d-block w-100"
+                  alt="Imagem de administração"
+                />
+              </div>
+              <div class="carousel-item" data-caption="Trabalho em equipe">
+                <img
+                  src="https://www.hrconnect.cl/wp-content/uploads/2019/10/Palmetto-Leadership-why-us.jpg"
+                  class="d-block w-100"
+                  alt="Imagem de trabalho em equipe"
+                />
+              </div>
+            </div>
+
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#meuCarrossel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#meuCarrossel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#meuCarrossel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Próximo</span>
             </button>
           </div>
-    </main>
-</div>
-<footer class="rodape">
-    <a href = "mailto:gabrielaschubert172@gmail.com" target="_blank"> <img class="img-icones" src="https://logo-marque.com/wp-content/uploads/2020/11/Gmail-Embleme.png" alt="gmail"></a>
-    <a href="https://www.linkedin.com/in/gabriela-schubert-630741271/" target="_blank"> <img  class="img-icones" src="https://download.logo.wine/logo/LinkedIn/LinkedIn-Logo.wine.png" alt="linkedin"></a>
-    <a href="https://github.com/GabrielaSchubert" target="_blank"> <img class="img-icones" src="https://th.bing.com/th/id/R.7ea67df8f3ea706fdc9b493725fa0835?rik=WIuTpARHDBiwKg&pid=ImgRaw&r=0" alt="github"></a>
-    <p class="copyright">
+          <div
+            id="carouselCaption"
+            class="carousel-caption-below"
+            aria-live="polite"
+          ></div>
+        </div>
+      </main>
+    </div>
+    <footer class="rodape" role="contentinfo">
+      <ul class="social-list" aria-label="Redes sociais">
+        <li>
+          <a
+            href="mailto:gabrielaschubert172@gmail.com"
+            target="_blank"
+            rel="noopener"
+            ><img
+              class="img-icones"
+              src="https://logo-marque.com/wp-content/uploads/2020/11/Gmail-Embleme.png"
+              alt="Enviar email para Gabriela"
+          /></a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/gabriela-schubert-630741271/"
+            target="_blank"
+            rel="noopener"
+            ><img
+              class="img-icones"
+              src="https://download.logo.wine/logo/LinkedIn/LinkedIn-Logo.wine.png"
+              alt="Perfil LinkedIn de Gabriela"
+          /></a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/GabrielaSchubert"
+            target="_blank"
+            rel="noopener"
+            ><img
+              class="img-icones"
+              src="https://th.bing.com/th/id/R.7ea67df8f3ea706fdc9b493725fa0835?rik=WIuTpARHDBiwKg&pid=ImgRaw&r=0"
+              alt="Perfil GitHub de Gabriela"
+          /></a>
+        </li>
+      </ul>
+      <small class="copyright">
         &copy; 2025 - Gabriela Schubert. Todos os direitos reservados.
-    </p>
-</footer>
-<script src="script.js"></script>
-</body>
+      </small>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
